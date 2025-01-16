@@ -1,18 +1,15 @@
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
-import './App.css'
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { DashboardPage } from "./pages/dashboard";
 
 function App() {
-
   return (
-    <div>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<DashboardPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
