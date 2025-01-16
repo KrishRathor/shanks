@@ -35,6 +35,7 @@ clerkWebhookRouter.post("/", async (req: Request, res: Response) => {
         res.status(500).send("Internal Server Error");
     }
 
+    await db.$disconnect();
     return void res.status(200).json({
         success: true,
         message: 'Webhook received',
