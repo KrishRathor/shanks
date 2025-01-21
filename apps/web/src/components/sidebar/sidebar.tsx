@@ -2,7 +2,7 @@ import { useUser } from "@clerk/clerk-react";
 import { SiPolygon } from "react-icons/si";
 import { FcContacts, FcSettings, FcSalesPerformance, FcCollaboration, FcMenu, FcComments } from "react-icons/fc";
 
-export const Sidebar = () => {
+export const Sidebar = ({ setSelectedComponent }: { setSelectedComponent: (component: string) => void }) => {
   const { user } = useUser();
 
   const options = [
@@ -18,13 +18,14 @@ export const Sidebar = () => {
     <div className="w-[15%] h-screen bg-[#000] flex flex-col justify-between">
       <div className="mt-4 flex items-center justify-center">
         <SiPolygon className="mr-4 h-[40px] w-[35px]" />
-        <h1 className="text-3xl font-bold text-center">Shanks</h1>
+        <h1 className="text-3xl font-bold text-center cursor-pointer" onClick={() => setSelectedComponent("Dashboard")}>Shanks</h1>
       </div>
 
       <div className="flex flex-col items-center justify-center">
         {options.map((option) => (
           <div
             key={option.name}
+            onClick={() => setSelectedComponent(option.name)}
             className="w-[90%] h-[50px] flex items-center cursor-pointer hover:bg-[#1a1a1a] rounded-md mt-[10px]
             transition-colors duration-200"
           >

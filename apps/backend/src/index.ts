@@ -13,6 +13,10 @@ app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware())
 
+// app.get("/", (req, res) => {
+//   res.send("Hello World");
+// });
+
 app.use("/api/users", userRouter);
 app.use("/api/webhooks", clerkWebhookRouter);
 app.use("/api/campaigns", campaignRouter);

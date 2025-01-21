@@ -20,7 +20,7 @@ type Campaign = z.infer<typeof Campaign>;
 export const CreateCampaignInput = z.object({
   name: z.string().min(1, "Name is required"),
   subject: z.string().min(1, "Subject is required"),
-  content: z.string().min(1, "Content is required"),
+  description: z.string().min(1, "Description is required"),
 });
 
 

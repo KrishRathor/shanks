@@ -19,11 +19,13 @@ campaignRouter.post("/createCampaign", requireAuth(), async (req: Request, res: 
         });
     }   
 
-    const { name, subject, content } = parsed.data;
+    const { name, subject, description } = parsed.data;
+    console.log(name, subject, description);
 
     try {
 
         const { userId } = getAuth(req);
+        console.log(userId);
 
         if (!userId) {
             return void res.status(HttpStatusCodes.UNAUTHORIZED).json({
@@ -33,7 +35,7 @@ campaignRouter.post("/createCampaign", requireAuth(), async (req: Request, res: 
             });
         }
         const user = await clerkClient.users.getUser(userId);
-        
+        console.log(user);
         const userFromDb = await db.user.findUnique({
             where: {
                 id: userId
@@ -52,10 +54,12 @@ campaignRouter.post("/createCampaign", requireAuth(), async (req: Request, res: 
             data: {
                 name,
                 subject,
-                content,
+                description,
                 userId: userFromDb.id
             }
         }); 
+
+        console.log(campaign);
 
         return void res.status(HttpStatusCodes.CREATED).json({
             code: HttpStatusCodes.CREATED,
@@ -141,18 +145,18 @@ campaignRouter.get("/getCampaignById", requireAuth(), async (req: Request, res: 
 });
 
 campaignRouter.get("/getCampaigns", requireAuth(), async (req: Request, res: Response) => {
-    const schema = GetCampaignsRequest;
+    // const schema = GetCampaignsRequest;
 
-    const parsed = schema.safeParse(req.body);
-    if (!parsed.success) {
-        return void res.status(HttpStatusCodes.BAD_REQUEST).json({
-            code: HttpStatusCodes.BAD_REQUEST,
-            message: "Invalid request body",
-            response: null
-        });
-    }
+    // const parsed = schema.safeParse(req.body);
+    // if (!parsed.success) {
+    //     return void res.status(HttpStatusCodes.BAD_REQUEST).json({
+    //         code: HttpStatusCodes.BAD_REQUEST,
+    //         message: "Invalid request body",
+    //         response: null
+    //     });
+    // }
 
-    const { userId } = parsed.data;
+    // const { userId } = parsed.data;
 
     try {
 

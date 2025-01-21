@@ -32,8 +32,8 @@ export const Dashboard = () => {
   ];
 
   return (
-    <div className="w-full h-full justify-center flex flex-col">
-      <div className="w-[85%] flex justify-center pt-[4vh] p-4">
+    <div className="w-[70vw] h-full justify-center flex flex-col">
+      <div className="w-full flex justify-center pt-[4vh] p-4">
         {dashboardData.map((item, index) => (
           <DashboardBox
             key={index}
@@ -45,15 +45,15 @@ export const Dashboard = () => {
         ))}
       </div>
 
-      <div className="flex justify-center space-x-6 w-[85%]">
-        <div className="bg-[#1D1F20] text-white p-4 w-[50%] h-[50vh] flex flex-col justify-between rounded-md transform transition-transform duration-300 hover:scale-105">
+      <div className="flex justify-center space-x-6 w-full">
+        <div className="bg-[#1D1F20] text-white p-4 w-[48%] cursor-pointer h-[50vh] flex flex-col justify-between rounded-md transform transition-transform duration-300 hover:scale-105">
           <h3 className="mb-1"></h3>
           <div>
             <p></p>
           </div>
         </div>
 
-        <div className="bg-[#1D1F20] text-white p-4 w-[18%] h-92 flex flex-col justify-between rounded-md transform transition-transform duration-300 hover:scale-105">
+        <div className="bg-[#1D1F20] text-white p-4 w-[20%] cursor-pointer h-92 flex flex-col justify-between rounded-md transform transition-transform duration-300 hover:scale-105">
           <h3 className="mb-1"></h3>
           <div>
             <p></p>
@@ -61,8 +61,8 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <div className="flex justify-center w-[85%]">
-        <div className="bg-[#1D1F20] text-white p-4 w-[70%] mt-4 h-[20vh] flex flex-col justify-between rounded-md transform transition-transform duration-300 hover:scale-105">
+      <div className="flex justify-center w-full">
+        <div className="bg-[#1D1F20] text-white p-4 w-[70%] cursor-pointer mt-4 h-[20vh] flex flex-col justify-between rounded-md transform transition-transform duration-300 hover:scale-105">
           <h3 className="mb-1"></h3>
           <div>
             <p></p>
@@ -119,3 +119,4 @@ const LargeDashboardBox: React.FC<LargeDashboardBoxProps> = ({
     </div>
   );
 };
+
